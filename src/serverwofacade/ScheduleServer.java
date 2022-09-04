@@ -5,12 +5,29 @@
  */
 
 package serverwofacade;
-
 /**
  *
  * @author sarun
  */
 public class ScheduleServer {
+    public void startServer(){
+        startBooting();
+        readSystemConfigFile();
+        init();
+        initializeContext();
+        initializeListeners();
+        createSystemObjects();
+        System.out.println("Start working......");
+    }
+    public void stopServer(){
+        System.out.println("After work done.........");
+        releaseProcesses();
+        destory();
+        destroySystemObjects();
+        destoryListeners();
+        destoryContext();
+        shutdown();
+    }
     public void startBooting(){
 	System.out.println("Starts booting...");
     }
